@@ -41,6 +41,7 @@ public class EmailNotificationService {
                             return new PasswordAuthentication(username, password);
                         }
                     });
+
             MimeMessage message = new MimeMessage(getMailSession);
             message.addRecipient(Message.RecipientType.TO, new InternetAddress("rfrankie04@gmail.com"));
             message.setSubject("Email Contact Notification: " + contactFormDto.getAppName());
