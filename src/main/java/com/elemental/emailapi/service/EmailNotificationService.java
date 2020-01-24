@@ -20,27 +20,26 @@ import java.util.Properties;
 public class EmailNotificationService {
 
     private final Logger logger = LoggerFactory.getLogger(EmailNotificationService.class);
-    private static Properties mailServerProperties;
-    private static Session getMailSession;
 
     public ResponseEntity<ContactFormDto> sendContactFormNotification(ContactFormDto contactFormDto) {
         ResponseEntity<ContactFormDto> responseEntity;
         final String username = "elementalemailapi@gmail.com";
         final String password = "zQVZbsVgPvm6t8R";
         Transport transport;
-        mailServerProperties = System.getProperties();
+        Properties mailServerProperties = System.getProperties();
         mailServerProperties.put("mail.smtp.port", "587");
         mailServerProperties.put("mail.smtp.auth", "true");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
 
 
         try{
-            getMailSession = Session.getInstance(mailServerProperties,
+            Session getMailSession = Session.getInstance(mailServerProperties,
                     new javax.mail.Authenticator() {
                         protected PasswordAuthentication getPasswordAuthentication() {
                             return new PasswordAuthentication(username, password);
                         }
                     });
+
             MimeMessage message = new MimeMessage(getMailSession);
             message.addRecipient(Message.RecipientType.TO, new InternetAddress("rfrankie04@gmail.com"));
             message.setSubject("Email Contact Notification: " + contactFormDto.getAppName());
