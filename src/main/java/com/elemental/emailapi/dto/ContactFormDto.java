@@ -6,7 +6,6 @@ public class ContactFormDto extends ValidatedDto {
     private String name;
     private String appName;
     private String message;
-    private String error;
 
     public String getEmail() {
         return email;
@@ -40,11 +39,4 @@ public class ContactFormDto extends ValidatedDto {
         this.message = message;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 }
