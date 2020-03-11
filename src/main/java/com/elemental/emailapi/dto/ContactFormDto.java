@@ -1,6 +1,6 @@
 package com.elemental.emailapi.dto;
 
-public class ContactFormDto {
+public class ContactFormDto extends ValidatedDto {
 
     private String email;
     private String name;
