@@ -24,7 +24,7 @@ public class EmailNotificationService {
     public ResponseEntity<ContactFormDto> sendContactFormNotification(ContactFormDto contactFormDto) {
         ResponseEntity<ContactFormDto> responseEntity;
         final String username = "elementalemailapi@gmail.com";
-        final String password = "zQVZbsVgPvm6t8R";
+        final String password = "Emailapi1497!";
         Transport transport;
         Properties mailServerProperties = System.getProperties();
         mailServerProperties.put("mail.smtp.port", "587");
